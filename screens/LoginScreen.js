@@ -10,6 +10,22 @@ import {
 import InputTextField from "../components/InputTextField";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { email: "", password: "" };
+  }
+  handleEmailChange = (email) => {
+    this.setState({ email: email });
+  };
+
+  handlePasswordChange = (password) => {
+    this.setState({ password: password });
+  };
+
+  handleLoginPress = () => {
+    console.log("Login button pressed");
+  };
+
   render() {
     return (
       <ScrollView style={styles.container}>
