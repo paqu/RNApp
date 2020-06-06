@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
+import colors from "../config/colors";
 
 export default class InputTextField extends React.Component {
   render() {
@@ -19,12 +20,13 @@ export default class InputTextField extends React.Component {
 
 const styles = StyleSheet.create({
   inputTitle: {
-    color: "#ABB4BD",
+    color: colors.GRAY,
+
     fontSize: 14,
   },
   input: {
     paddingVertical: 12,
-    color: "#1D2029",
+    color: colors.DARK,
     fontSize: 14,
     fontFamily: "Avenir Next",
   },

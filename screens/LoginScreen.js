@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 import InputTextField from "../components/InputTextField";
+import colors from "../config/colors";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -66,7 +67,7 @@ export default class App extends React.Component {
               style={[
                 styles.text,
                 {
-                  color: "#FFF",
+                  color: colors.WHITE,
                   fontWeight: "600",
                   fontSize: 16,
                 },
@@ -80,7 +81,7 @@ export default class App extends React.Component {
               styles.text,
               {
                 fontSize: 14,
-                color: "#ABB4BD",
+                color: colors.GRAY,
                 textAlign: "center",
                 marginTop: 24,
               },
@@ -98,27 +99,27 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.WHITE,
     paddingHorizontal: 30,
   },
   text: {
     fontFamily: "Avenir Next",
-    color: "#1D2029",
+    color: colors.DARK,
   },
   link: {
-    color: "#6cbd7e",
+    color: colors.GREEN,
     fontSize: 14,
     fontWeight: "500",
   },
   submitContainer: {
-    backgroundColor: "#6cbd7e",
+    backgroundColor: colors.GREEN,
     fontSize: 16,
     borderRadius: 4,
     paddingVertical: 12,
     marginTop: 32,
     alignItems: "center",
     justifyContent: "center",
-    color: "#FFF",
+    color: colors.WHITE,
     shadowColor: "rgba(108, 189, 126, 0.24)",
     shadowOffset: { width: 0, height: 9 },
     shadowOpacity: 1,
