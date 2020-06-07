@@ -4,9 +4,17 @@ import colors from "../config/colors";
 
 class FormButton extends React.Component {
   render() {
-    const { label, onPress } = this.props;
+    const { disabled, label, onPress } = this.props;
+    const containerStyle = [
+      styles.container,
+      disabled ? styles.containerDisabled : styles.containerEnabled,
+    ];
     return (
-      <TouchableOpacity style={styles.container} onPress={onPress}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={onPress}
+        disabled={disabled}
+      >
         <Text style={styles.text}>{label}</Text>
       </TouchableOpacity>
     );
@@ -15,17 +23,6 @@ class FormButton extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    /*
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.GREEN,
-    marginBottom: 12,
-    paddingVertical: 12,
-    borderRadius: 4,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "rgba(255,255,255,0.7)",
-   */
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
@@ -41,6 +38,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 20,
     elevation: 5,
+  },
+  containerEnabled: {
+    opacity: 1,
+  },
+  containerDisabled: {
+    opacity: 0.3,
   },
   text: {
     color: colors.WHITE,
