@@ -19,12 +19,20 @@ export default class App extends React.Component {
     super(props);
     this.state = { email: "", password: "" };
   }
+  passwordInputRef = React.createRef();
+
   handleEmailChange = (email) => {
     this.setState({ email: email });
   };
 
   handlePasswordChange = (password) => {
     this.setState({ password: password });
+  };
+
+  handleEmailSubmitPress = () => {
+    if (this.passwordInputRef.current) {
+      this.passwordInputRef.current.focus();
+    }
   };
 
   handleLoginPress = () => {
@@ -50,8 +58,26 @@ export default class App extends React.Component {
         </Text>
 
         <View style={styles.form}>
-          <FormTextInput title={strings.LOGIN_TITLE} />
-          <FormTextInput title={strings.PASSWORD} secureTextEntry={true} />
+          <FormTextInput
+            title={strings.LOGIN_TITLE}
+            value={this.state.email}
+            onChangeText={this.handleEmailChange}
+            onSubmitEditing={this.handleEmailSubmitPress}
+            autoCorrect={false}
+            autoCapitalize={"none"}
+            keyboardType="email-address"
+            returnKeyType="next"
+          />
+          <FormTextInput
+            title={strings.PASSWORD}
+            ref={this.passwordInputRef}
+            value={this.state.password}
+            onChangeText={this.handlePasswordChange}
+            placeholder="Password"
+            secureTextEntry={true}
+            autoCapitalize={"none"}
+            returnKeyType="done"
+          />
 
           <Text style={[styles.text, styles.link, { textAlign: "right" }]}>
             Forgot Password?

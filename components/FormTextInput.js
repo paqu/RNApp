@@ -3,12 +3,24 @@ import { StyleSheet, View, Text, TextInput } from "react-native";
 import colors from "../config/colors";
 
 export default class FormTextInput extends React.Component {
+  textInputRef = React.createRef();
+
+  focus = () => {
+    if (this.textInputRef.current) {
+      this.textInputRef.current.focus();
+    }
+  };
+
   render() {
     const { title, ...otherProps } = this.props;
     return (
       <View style={styles.margin}>
         <Text style={styles.inputTitle}>{title}</Text>
-        <TextInput style={styles.input} {...otherProps} />
+        <TextInput
+          ref={this.textInputRef}
+          style={styles.input}
+          {...otherProps}
+        />
         <View style={styles.border} />
       </View>
     );
