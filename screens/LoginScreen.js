@@ -113,6 +113,7 @@ export default class App extends React.Component {
                 color: colors.GRAY,
                 textAlign: "center",
                 marginTop: 24,
+                marginBottom: 34,
               },
             ]}
           >
