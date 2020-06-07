@@ -4,10 +4,11 @@ import {
   Text,
   View,
   Image,
+  KeyboardAvoidingView,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import InputTextField from "../components/InputTextField";
+import FormTextInput from "../components/FormTextInput";
 import FormButton from "../components/FormButton";
 
 import colors from "../config/colors";
@@ -52,8 +53,8 @@ export default class App extends React.Component {
           </Text>
         </View>
 
-        <InputTextField style={styles.inputTitle} title="Email" />
-        <InputTextField
+        <FormTextInput style={styles.inputTitle} title="Email" />
+        <FormTextInput
           style={{
             marginTop: 32,
             marginBottom: 8,
