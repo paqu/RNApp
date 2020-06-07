@@ -53,15 +53,9 @@ export default class App extends React.Component {
           </Text>
         </View>
 
-        <FormTextInput style={styles.inputTitle} title="Email" />
-        <FormTextInput
-          style={{
-            marginTop: 32,
-            marginBottom: 8,
-          }}
-          title="Password"
-          isSecure={true}
-        />
+        <FormTextInput title={strings.LOGIN_TITLE} />
+        <FormTextInput title={strings.PASSWORD} secureTextEntry={true} />
+
         <Text style={[styles.text, styles.link, { textAlign: "right" }]}>
           Forgot Password?
         </Text>
