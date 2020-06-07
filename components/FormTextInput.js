@@ -12,7 +12,7 @@ export default class FormTextInput extends React.Component {
   };
 
   render() {
-    const { title, ...otherProps } = this.props;
+    const { error, title, ...otherProps } = this.props;
     return (
       <View style={styles.margin}>
         <Text style={styles.inputTitle}>{title}</Text>
@@ -21,6 +21,7 @@ export default class FormTextInput extends React.Component {
           style={styles.input}
           {...otherProps}
         />
+        <Text style={styles.errorText}>{error || ""}</Text>
         <View style={styles.border} />
       </View>
     );
@@ -45,5 +46,9 @@ const styles = StyleSheet.create({
   border: {
     borderBottomColor: "#D8D8D8",
     borderBottomWidth: 1,
+  },
+  errorText: {
+    //height: 20,
+    color: colors.TORCH_RED,
   },
 });

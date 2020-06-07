@@ -5,8 +5,6 @@ import {
   View,
   Image,
   KeyboardAvoidingView,
-  TouchableOpacity,
-  ScrollView,
 } from "react-native";
 import FormTextInput from "../components/FormTextInput";
 import FormButton from "../components/FormButton";
@@ -17,7 +15,12 @@ import strings from "../config/strings";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { email: "", password: "" };
+    this.state = {
+      email: "",
+      password: "",
+      emailTouched: false,
+      passwordTouched: false,
+    };
   }
   passwordInputRef = React.createRef();
 
@@ -34,12 +37,23 @@ export default class App extends React.Component {
       this.passwordInputRef.current.focus();
     }
   };
+  handleEmailBlur = () => {
+    this.setState({ emailTouched: true });
+  };
 
+  handlePasswordBlur = () => {
+    this.setState({ passwordTouched: true });
+  };
   handleLoginPress = () => {
     console.log("Login button pressed");
   };
 
   render() {
+    const { email, password, emailTouched, passwordTouched } = this.state;
+    const emailError =
+      !email && emailTouched ? strings.EMAIL_REQUIRED : undefined;
+    const passwordError =
+      !password && passwordTouched ? strings.PASSWORD_REQUIRED : undefined;
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding">
         <Image source={require("../assets/logo.png")} style={styles.logo} />
@@ -67,22 +81,30 @@ export default class App extends React.Component {
             autoCapitalize={"none"}
             keyboardType="email-address"
             returnKeyType="next"
+            onBlur={this.handleEmailBlur}
+            error={emailError}
           />
           <FormTextInput
-            title={strings.PASSWORD}
+            title={strings.PASSWORD_TITLE}
             ref={this.passwordInputRef}
             value={this.state.password}
             onChangeText={this.handlePasswordChange}
             secureTextEntry={true}
             autoCapitalize={"none"}
             returnKeyType="done"
+            onBlur={this.handlePasswordBlur}
+            error={passwordError}
           />
 
           <Text style={[styles.text, styles.link, { textAlign: "right" }]}>
             Forgot Password?
           </Text>
 
-          <FormButton label={strings.LOGIN} onPress={this.handleLoginPress} />
+          <FormButton
+            label={strings.LOGIN}
+            onPress={this.handleLoginPress}
+            disabled={!email || !password}
+          />
           <Text
             style={[
               styles.text,

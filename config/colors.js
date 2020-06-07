@@ -3,6 +3,7 @@ const colors = {
   GRAY: "#abb4bd",
   WHITE: "#ffffff",
   DARK: "#1D2029",
+  TORCH_RED: "#F8262F",
 };
 
 export default colors;

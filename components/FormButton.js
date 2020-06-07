@@ -11,7 +11,7 @@ class FormButton extends React.Component {
     ];
     return (
       <TouchableOpacity
-        style={styles.container}
+        style={containerStyle}
         onPress={onPress}
         disabled={disabled}
       >
