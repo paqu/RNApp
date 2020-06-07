@@ -8,7 +8,10 @@ import {
   ScrollView,
 } from "react-native";
 import InputTextField from "../components/InputTextField";
+import FormButton from "../components/FormButton";
+
 import colors from "../config/colors";
+import strings from "../config/strings";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -29,69 +32,55 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <View>
-          <View
-            style={{
-              marginTop: 60,
-              marginBottom: 80,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Image source={require("../assets/logo.png")} />
-            <Text
-              style={[
-                styles.text,
-                { marginTop: 10, fontSize: 22, fontWeight: "500" },
-              ]}
-            >
-              myBudget
-            </Text>
-          </View>
-
-          <InputTextField style={styles.inputTitle} title="Email" />
-          <InputTextField
-            style={{
-              marginTop: 32,
-              marginBottom: 8,
-            }}
-            title="Password"
-            isSecure={true}
-          />
-          <Text style={[styles.text, styles.link, { textAlign: "right" }]}>
-            Forgot Password?
-          </Text>
-          <TouchableOpacity style={styles.submitContainer}>
-            <Text
-              style={[
-                styles.text,
-                {
-                  color: colors.WHITE,
-                  fontWeight: "600",
-                  fontSize: 16,
-                },
-              ]}
-            >
-              Login
-            </Text>
-          </TouchableOpacity>
+      <View style={styles.container}>
+        <View
+          style={{
+            marginTop: 60,
+            marginBottom: 80,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Image source={require("../assets/logo.png")} />
           <Text
             style={[
               styles.text,
-              {
-                fontSize: 14,
-                color: colors.GRAY,
-                textAlign: "center",
-                marginTop: 24,
-              },
+              { marginTop: 10, fontSize: 22, fontWeight: "500" },
             ]}
           >
-            Don't have an account?{" "}
-            <Text style={[styles.text, styles.link]}>Register Now</Text>
+            myBudget
           </Text>
         </View>
-      </ScrollView>
+
+        <InputTextField style={styles.inputTitle} title="Email" />
+        <InputTextField
+          style={{
+            marginTop: 32,
+            marginBottom: 8,
+          }}
+          title="Password"
+          isSecure={true}
+        />
+        <Text style={[styles.text, styles.link, { textAlign: "right" }]}>
+          Forgot Password?
+        </Text>
+
+        <FormButton label={strings.LOGIN} onPress={this.handleLoginPress} />
+        <Text
+          style={[
+            styles.text,
+            {
+              fontSize: 14,
+              color: colors.GRAY,
+              textAlign: "center",
+              marginTop: 24,
+            },
+          ]}
+        >
+          Don't have an account?{" "}
+          <Text style={[styles.text, styles.link]}>Register Now</Text>
+        </Text>
+      </View>
     );
   }
 }
@@ -110,20 +99,5 @@ const styles = StyleSheet.create({
     color: colors.GREEN,
     fontSize: 14,
     fontWeight: "500",
-  },
-  submitContainer: {
-    backgroundColor: colors.GREEN,
-    fontSize: 16,
-    borderRadius: 4,
-    paddingVertical: 12,
-    marginTop: 32,
-    alignItems: "center",
-    justifyContent: "center",
-    color: colors.WHITE,
-    shadowColor: "rgba(108, 189, 126, 0.24)",
-    shadowOffset: { width: 0, height: 9 },
-    shadowOpacity: 1,
-    shadowRadius: 20,
-    elevation: 5,
   },
 });
