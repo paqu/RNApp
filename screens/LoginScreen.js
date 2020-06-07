@@ -73,7 +73,6 @@ export default class App extends React.Component {
             ref={this.passwordInputRef}
             value={this.state.password}
             onChangeText={this.handlePasswordChange}
-            placeholder="Password"
             secureTextEntry={true}
             autoCapitalize={"none"}
             returnKeyType="done"
