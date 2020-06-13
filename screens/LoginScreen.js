@@ -45,7 +45,7 @@ export default class LoginScreen extends React.Component {
     this.setState({ passwordTouched: true });
   };
   handleLoginPress = () => {
-    console.log("Login button pressed");
+    this.props.navigation.navigate("");
   };
 
   render() {
@@ -96,7 +96,10 @@ export default class LoginScreen extends React.Component {
             error={passwordError}
           />
 
-          <Text style={[styles.text, styles.link, { textAlign: "right" }]}>
+          <Text
+            style={[styles.text, styles.link, { textAlign: "right" }]}
+            onPress={() => this.props.navigation.navigate("ForgotPassword")}
+          >
             Forgot Password?
           </Text>
 
@@ -117,7 +120,12 @@ export default class LoginScreen extends React.Component {
             ]}
           >
             Don't have an account?{" "}
-            <Text style={[styles.text, styles.link]}>Register Now</Text>
+            <Text
+              style={[styles.text, styles.link]}
+              onPress={() => this.props.navigation.navigate("Register")}
+            >
+              Register Now
+            </Text>
           </Text>
         </View>
       </KeyboardAvoidingView>
