@@ -12,7 +12,7 @@ import FormButton from "../components/FormButton";
 import colors from "../config/colors";
 import strings from "../config/strings";
 
-export default class App extends React.Component {
+export default class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
