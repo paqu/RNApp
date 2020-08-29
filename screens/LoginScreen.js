@@ -6,13 +6,18 @@ import {
   Image,
   KeyboardAvoidingView,
 } from "react-native";
+
 import FormTextInput from "../components/FormTextInput";
 import FormButton from "../components/FormButton";
 
 import colors from "../config/colors";
 import strings from "../config/strings";
 
+import { AuthContext } from "../context";
+
 export default class LoginScreen extends React.Component {
+  static contextType = AuthContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +27,7 @@ export default class LoginScreen extends React.Component {
       passwordTouched: false,
     };
   }
+
   passwordInputRef = React.createRef();
 
   handleEmailChange = (email) => {
@@ -45,7 +51,9 @@ export default class LoginScreen extends React.Component {
     this.setState({ passwordTouched: true });
   };
   handleLoginPress = () => {
-    this.props.navigation.navigate("");
+    console.log("Hello world");
+    this.context.signIn(this.state.email, this.state.password);
+    //this.props.navigation.navigate("App");
   };
 
   render() {
