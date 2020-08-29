@@ -4,19 +4,9 @@ import AsyncStorage from "@react-native-community/async-storage";
 import Loading from "./components/Loading";
 import { NavigationContainer } from "@react-navigation/native";
 
-/* app navigator */
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import AppScreen from "./screens/AppScreen";
-
-const Tabs = createBottomTabNavigator();
-
-const AppNavigation = () => (
-  <Tabs.Navigator>
-    <Tabs.Screen name="Main" component={AppScreen} />
-  </Tabs.Navigator>
-);
-
+import AppNavigation from "./navigation/AppNavigation";
 import AuthNavigation from "./navigation/AuthNavigation";
+
 import { AuthContext } from "./context";
 
 export default () => {
