@@ -7,14 +7,12 @@ import { NavigationContainer } from "@react-navigation/native";
 /* app navigator */
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AppScreen from "./screens/AppScreen";
-import ProfileScreen from "./screens/ProfileScreen";
 
 const Tabs = createBottomTabNavigator();
 
 const AppNavigation = () => (
   <Tabs.Navigator>
     <Tabs.Screen name="Main" component={AppScreen} />
-    <Tabs.Screen name="Profile" component={ProfileScreen} />
   </Tabs.Navigator>
 );
 
