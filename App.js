@@ -16,27 +16,7 @@ const AppNavigation = () => (
   </Tabs.Navigator>
 );
 
-/* auth navigator */
-import { createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
-
-const Stack = createStackNavigator();
-
-const AuthNavigation = () => (
-  <Stack.Navigator
-    initialRouteName="Login"
-    screenOptions={{
-      headerShown: false,
-    }}
-  >
-    <Stack.Screen name="Login" component={LoginScreen} />
-    <Stack.Screen name="Register" component={RegisterScreen} />
-    <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-  </Stack.Navigator>
-);
-
+import AuthNavigation from "./navigation/AuthNavigation";
 import { AuthContext } from "./context";
 
 export default () => {
