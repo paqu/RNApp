@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { AuthContext } from "../context";
+
+import { AuthContext } from "../context/AuthProvider";
 
 export default class AppScreen extends React.Component {
   static contextType = AuthContext;

@@ -13,7 +13,7 @@ import FormButton from "../components/FormButton";
 import colors from "../config/colors";
 import strings from "../config/strings";
 
-import { AuthContext } from "../context";
+import { AuthContext } from "../context/AuthProvider";
 
 export default class LoginScreen extends React.Component {
   static contextType = AuthContext;
@@ -50,10 +50,9 @@ export default class LoginScreen extends React.Component {
   handlePasswordBlur = () => {
     this.setState({ passwordTouched: true });
   };
+
   handleLoginPress = () => {
-    console.log("Hello world");
     this.context.signIn(this.state.email, this.state.password);
-    //this.props.navigation.navigate("App");
   };
 
   render() {

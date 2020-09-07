@@ -12,7 +12,7 @@ import FormButton from "../components/FormButton";
 import colors from "../config/colors";
 import strings from "../config/strings";
 
-import { AuthContext } from "../context";
+import { AuthContext } from "../context/AuthProvider";
 
 export default class RegisterScreen extends React.Component {
   static contextType = AuthContext;
