@@ -65,7 +65,7 @@ export default class RegisterScreen extends React.Component {
   };
   handleSignUpPress = () => {
     console.log("Register button pressed");
-    this.context.signUp(this.email, this.password);
+    this.context.signUp(this.state.email, this.state.password);
   };
 
   render() {
