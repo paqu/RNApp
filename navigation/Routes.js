@@ -20,14 +20,14 @@ export default class Routes extends React.Component {
   }
 
   bootstrapAsync = async () => {
-    let userToken;
+    let user;
 
     try {
-      userToken = await AsyncStorage.getItem("userToken");
+      user = await AsyncStorage.getItem("user");
     } catch (e) {
-      console.log("routes: Get token error");
+      console.log("routes: Get user error");
     }
-    this.context.setUser(userToken);
+    this.context.setUser(user);
     this.setState({ loading: false });
   };
 
