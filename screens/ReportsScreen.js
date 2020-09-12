@@ -2,6 +2,10 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Card } from "react-native-elements";
 
+import CategoriesList from "../components/CategoriesList";
+import PeriodPicker from "../components/PeriodPicker";
+import BudgetSummary from "../components/BudgetSummary";
+
 export default class ReportsScreen extends React.Component {
   render() {
     return (
@@ -15,6 +19,11 @@ export default class ReportsScreen extends React.Component {
         >
           <Card.Title>Reports</Card.Title>
           <Card.Divider />
+          <PeriodPicker />
+          <Card.Divider />
+          <BudgetSummary />
+          <Card.Divider />
+          <CategoriesList />
         </Card>
       </View>
     );
