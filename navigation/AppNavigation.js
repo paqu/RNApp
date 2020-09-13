@@ -2,9 +2,10 @@ import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import colors from "../config/colors";
+
 import ReportsScreen from "../screens/ReportsScreen";
-import TransactionsScreen from "../screens/TransactionsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
+import TransactionsNavigation from "./TransactionsNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +38,7 @@ export default function AppNavigation() {
       }}
     >
       <Tab.Screen name="Reports" component={ReportsScreen} />
-      <Tab.Screen name="Transactions" component={TransactionsScreen} />
+      <Tab.Screen name="Transactions" component={TransactionsNavigation} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
