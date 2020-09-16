@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { ScrollView, Text, StyleSheet } from "react-native";
 import Category from "./Category";
 
 const categories = [
@@ -62,18 +62,19 @@ const categories = [
 ];
 const CategoriesList = (props) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.header}>Categories</Text>
       {categories.map((item) => (
         <Category key={item.id} category={item} />
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
+    height: 500,
   },
   header: {
     fontSize: 22,
