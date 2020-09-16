@@ -6,6 +6,7 @@ import { Button } from "react-native-elements";
 
 import colors from "../config/colors";
 import PeriodPicker from "../components/PeriodPicker";
+import TransactionsList from "../components/TransactionsList";
 
 export default class TransactionsScreen extends React.Component {
   render() {
@@ -15,7 +16,7 @@ export default class TransactionsScreen extends React.Component {
           containerStyle={{
             width: "96%",
             borderRadius: 10,
-            flexGrow: 0.98,
+            flexGrow: 1,
           }}
         >
           <Card.Title>Transactions</Card.Title>
@@ -34,6 +35,8 @@ export default class TransactionsScreen extends React.Component {
               marginRight: 20,
             }}
           />
+          <Card.Divider />
+          <TransactionsList />
         </Card>
       </View>
     );
@@ -42,8 +45,9 @@ export default class TransactionsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginTop: 30,
+    flex: 1,
+    marginBottom: 5,
     alignItems: "center",
     justifyContent: "center",
   },

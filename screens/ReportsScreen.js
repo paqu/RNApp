@@ -14,7 +14,7 @@ export default class ReportsScreen extends React.Component {
           containerStyle={{
             width: "96%",
             borderRadius: 10,
-            flexGrow: 0.98,
+            flexGrow: 1,
           }}
         >
           <Card.Title>Reports</Card.Title>
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 30,
+    marginBottom: 5,
     alignItems: "center",
     justifyContent: "center",
   },
