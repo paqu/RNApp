@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { ButtonGroup } from "react-native-elements";
+import { ButtonGroup, Button } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
-
+import { useNavigation } from "@react-navigation/native";
 import colors from "../config/colors";
 
 const ExpenseForm = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -31,7 +32,7 @@ const ExpenseForm = (props) => {
         <Text style={styles.title}>Title</Text>
         <View style={styles.input}>
           <Text>Type something...</Text>
-          {/* temp workaround */}
+          {/* temp workaround icon should be removed */}
           <Ionicons name="md-calendar" size={24} color="white" />
         </View>
       </View>
@@ -49,6 +50,32 @@ const ExpenseForm = (props) => {
           <Text>DD/MM/YYYY</Text>
           <Ionicons name="md-calendar" size={24} color="#dedede" />
         </View>
+      </View>
+      <View style={[styles.row, { marginTop: 20 }]}>
+        <Button
+          buttonStyle={{
+            backgroundColor: colors.GREEN,
+            marginBottom: 10,
+          }}
+          title="Save"
+          onPress={() => navigation.navigate("Transactions")}
+          titleStyle={{
+            marginRight: 20,
+          }}
+        />
+        <Button
+          buttonStyle={{
+            backgroundColor: "white",
+            borderColor: colors.GREEN,
+            borderWidth: 1,
+          }}
+          title="Cancel"
+          onPress={() => navigation.goBack()}
+          titleStyle={{
+            marginRight: 20,
+            color: colors.GREEN,
+          }}
+        />
       </View>
     </View>
   );

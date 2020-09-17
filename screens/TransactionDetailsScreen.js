@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Card, Button } from "react-native-elements";
-import colors from "../config/colors";
+import { View, StyleSheet } from "react-native";
+import { Card } from "react-native-elements";
 import ExpenseForm from "../components/ExpenseForm";
 
 const TransactionDetailsScreen = (props) => {
@@ -17,31 +16,6 @@ const TransactionDetailsScreen = (props) => {
         <Card.Title>Transaction Details</Card.Title>
         <Card.Divider />
         <ExpenseForm />
-        <Card.Divider />
-        <Button
-          buttonStyle={{
-            backgroundColor: colors.GREEN,
-            marginBottom: 10,
-          }}
-          title="Save"
-          onPress={() => {}}
-          titleStyle={{
-            marginRight: 20,
-          }}
-        />
-        <Button
-          buttonStyle={{
-            backgroundColor: "white",
-            borderColor: colors.GREEN,
-            borderWidth: 1,
-          }}
-          title="Cancel"
-          onPress={() => props.navigation.goBack()}
-          titleStyle={{
-            marginRight: 20,
-            color: colors.GREEN,
-          }}
-        />
       </Card>
     </View>
   );
