@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const setColorBasedOnType = (type) => {
   let color;
@@ -26,6 +27,7 @@ const setColorBasedOnCategory = (category) => {
 };
 
 const Transaction = ({ transaction }) => {
+  const navigation = useNavigation();
   const { title, category, amount, type } = transaction;
   return (
     <View style={styles.row}>
@@ -41,7 +43,10 @@ const Transaction = ({ transaction }) => {
         {type == "income" ? "+" : "-"}
         {amount} PLN
       </Text>
-      <Button title="Details" />
+      <Button
+        title="Details"
+        onPress={() => navigation.navigate("TransactionDetails")}
+      />
     </View>
   );
 };
