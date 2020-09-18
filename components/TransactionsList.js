@@ -6,6 +6,7 @@ import Transaction from "./Transaction";
 
 const initState = [
   {
+    id: 1,
     date: new Date(Date.now()),
     category: "Fun",
     title: "SQ",
@@ -13,6 +14,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 2,
     date: new Date(2020, 8, 13),
     category: "Fun",
     title: "SQ",
@@ -20,6 +22,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 3,
     date: new Date(2020, 8, 13),
     category: "Fun",
     title: "Cinema",
@@ -27,6 +30,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 4,
     date: new Date(2020, 8, 13),
     category: "Fun",
     title: "Tickets to theatre",
@@ -34,6 +38,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 5,
     date: new Date(2020, 8, 12),
     category: "Food",
     title: "Lunch",
@@ -41,6 +46,7 @@ const initState = [
     type: "income",
   },
   {
+    id: 6,
     date: new Date(2020, 8, 10),
     category: "Health",
     title: "Doctor visit",
@@ -48,6 +54,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 7,
     date: new Date(2020, 8, 9),
     category: "Food",
     title: "Shopping",
@@ -55,6 +62,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 8,
     date: new Date(2020, 8, 9),
     category: "Bills",
     title: "Internet Bills",
@@ -62,6 +70,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 9,
     date: new Date(2020, 8, 9),
     category: "Bills",
     title: "Internet Bills",
@@ -69,6 +78,7 @@ const initState = [
     type: "income",
   },
   {
+    id: 10,
     date: new Date(2020, 8, 9),
     category: "Bills",
     title: "Internet Bills",
@@ -76,6 +86,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 11,
     date: new Date(2020, 8, 9),
     category: "Food",
     title: "Shopping",
@@ -84,6 +95,7 @@ const initState = [
   },
 
   {
+    id: 12,
     date: new Date(2020, 8, 9),
     category: "Bills",
     title: "Internet Bills",
@@ -91,6 +103,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 13,
     date: new Date(2020, 8, 9),
     category: "Bills",
     title: "Internet Bills",
@@ -98,6 +111,7 @@ const initState = [
     type: "expense",
   },
   {
+    id: 14,
     date: new Date(2020, 8, 9),
     category: "Bills",
     title: "Internet Bills",
@@ -105,91 +119,11 @@ const initState = [
     type: "expense",
   },
   {
+    id: 15,
     date: new Date(2020, 8, 9),
     category: "Bills",
     title: "Internet Bills",
     amount: 69,
-    type: "expense",
-  } /*
-  {
-    date: new Date(2020, 8, 9),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 8),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 8),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 8),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 8),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 8),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 6),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 8),
-    category: "Food",
-    title: "MC Donald",
-    amount: 19,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 7),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  },
-  {
-    date: new Date(2020, 8, 7),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  }, */,
-  ,
-  ,
-  ,
-  ,
-  {
-    date: new Date(2020, 8, 7),
-    category: "Food",
-    title: "MC Donald",
-    amount: 19,
     type: "expense",
   },
 ];
@@ -225,23 +159,9 @@ const toTitleData = (input) =>
     title: title,
     data: data,
   }));
-/*
-      <Text style={styles.header}>History</Text>
-      {groupByDate(initState.map(mapper)).map((transaction) => {
-        return <DateSection date={transaction} />;
-      })}
 
-      */
 const dateSort = (a, b) => b.date - a.date;
 const DATA = toTitleData(groupByDate(initState.sort(dateSort).map(dateMapper)));
-
-const Item = ({ transaction }) => {
-  return (
-    <View style={styles.item}>
-      <Text> transaction </Text>
-    </View>
-  );
-};
 
 const TransactionsList = () => {
   return (
