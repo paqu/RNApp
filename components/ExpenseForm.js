@@ -7,7 +7,6 @@ import {
   StyleSheet,
   Keyboard,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView,
 } from "react-native";
 import { ButtonGroup, Button } from "react-native-elements";
 import { Ionicons } from "@expo/vector-icons";
@@ -21,12 +20,37 @@ const DismissKeyboard = ({ children }) => (
   </TouchableWithoutFeedback>
 );
 
+const zeroPad = (num) => {
+  let ret = num > 10 ? num : "0" + num;
+  return ret;
+};
+
+const convertDate = (date) => {
+  let ret =
+    date.getFullYear() +
+    "/" +
+    zeroPad(date.getMonth() + 1) +
+    "/" +
+    zeroPad(date.getDate());
+  return ret;
+};
+
 const ExpenseForm = (props) => {
+  const { transaction } = props;
+
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [category, setCategory] = useState("Choose category");
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [category, setCategory] = useState(
+    transaction ? transaction.category : "Choose category"
+  );
+  const [title, setTitle] = useState(transaction ? transaction.title : "");
+  const [amount, setAmount] = useState(
+    transaction ? transaction.amount.toString() : ""
+  );
+  const [date, setDate] = useState(
+    transaction
+      ? convertDate(new Date(transaction.date))
+      : convertDate(new Date(Date.now()))
+  );
 
   const [catPickerVisible, setCatPickerVisible] = useState(false);
   const navigation = useNavigation();
@@ -122,6 +146,7 @@ const ExpenseForm = (props) => {
           />
         </View>
         <CategoryPicker
+          value={category}
           visible={catPickerVisible}
           title={"Choose category"}
           items={["Fun", "Health", "Food", "Bills", "Transport"]}

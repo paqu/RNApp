@@ -9,8 +9,15 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-const CategoryPicker = ({ visible, items, title, onClose, onSelect }) => {
-  const [selectedValue, setSelectedValue] = useState("Fun");
+const CategoryPicker = ({
+  visible,
+  items,
+  title,
+  onClose,
+  onSelect,
+  value,
+}) => {
+  const [selectedValue, setSelectedValue] = useState(value);
   return (
     <Modal animated animatedType="fade" transparent visible={visible}>
       <View style={styles.container}>
