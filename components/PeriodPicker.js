@@ -83,7 +83,7 @@ const PeriodPicker = (props) => {
       </TouchableOpacity>
       <View style={dateView}>
         <Text style={dateText}>
-          {monthNumToName(month)} ,{year}
+          {monthNumToName(month)}, {year}
         </Text>
       </View>
       <TouchableOpacity style={styles.button} onPress={onPressRight}>
