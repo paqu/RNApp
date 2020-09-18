@@ -4,6 +4,10 @@ import { Card } from "react-native-elements";
 import ExpenseForm from "../components/ExpenseForm";
 
 const TransactionDetailsScreen = (props) => {
+  const { route } = props;
+  const title = route.params.title;
+  const transaction = route.params.transaction;
+
   return (
     <View style={styles.container}>
       <Card
@@ -13,9 +17,9 @@ const TransactionDetailsScreen = (props) => {
           flexGrow: 1,
         }}
       >
-        <Card.Title>Transaction Details</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Divider />
-        <ExpenseForm />
+        <ExpenseForm transaction={transaction} />
       </Card>
     </View>
   );

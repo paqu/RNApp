@@ -30,7 +30,11 @@ export default class TransactionsScreen extends React.Component {
             icon={<FontAwesome name="plus-square-o" size={24} color="white" />}
             iconRight
             title="Add new transaction "
-            onPress={() => this.props.navigation.navigate("TransactionDetails")}
+            onPress={() =>
+              this.props.navigation.navigate("TransactionDetails", {
+                title: "New transaction",
+              })
+            }
             titleStyle={{
               marginRight: 20,
             }}

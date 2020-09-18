@@ -39,13 +39,17 @@ const Transaction = ({ transaction }) => {
       ></View>
       <Text style={styles.title}>{title} </Text>
       <Text style={[styles.val, setColorBasedOnType(type)]}>
-        {" "}
         {type == "income" ? "+" : "-"}
         {amount} PLN
       </Text>
       <Button
         title="Details"
-        onPress={() => navigation.navigate("TransactionDetails")}
+        onPress={() => {
+          navigation.navigate("TransactionDetails", {
+            transaction: JSON.parse(JSON.stringify(transaction)),
+            title: "Transaction details",
+          });
+        }}
       />
     </View>
   );

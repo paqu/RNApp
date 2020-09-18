@@ -169,7 +169,9 @@ const TransactionsList = () => {
       <SectionList
         sections={DATA}
         keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => <Transaction transaction={item} />}
+        renderItem={({ item, index }) => (
+          <Transaction transaction={item} index={index} />
+        )}
         renderSectionHeader={({ section: { title } }) => (
           <DateSection title={title} />
         )}
