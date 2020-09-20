@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const setColorBasedOnType = (type) => {
   let color;
@@ -51,6 +52,15 @@ const Transaction = ({ transaction }) => {
           });
         }}
       />
+      <TouchableOpacity
+        onPress={() => alert("remove element: " + transaction.id)}
+      >
+        <MaterialCommunityIcons
+          name="delete-forever-outline"
+          size={20}
+          color="red"
+        />
+      </TouchableOpacity>
     </View>
   );
 };
