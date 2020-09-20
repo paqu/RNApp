@@ -40,7 +40,7 @@ const toTitleData = (input) =>
 const dateSort = (a, b) => b.date - a.date;
 
 const TransactionsList = (props) => {
-  const { transactions } = props;
+  const { transactions, onRemove } = props;
   return (
     <View style={styles.container}>
       <SectionList
@@ -49,7 +49,7 @@ const TransactionsList = (props) => {
         )}
         keyExtractor={(item, index) => item + index}
         renderItem={({ item, index }) => (
-          <Transaction transaction={item} index={index} />
+          <Transaction transaction={item} index={index} onRemove={onRemove} />
         )}
         renderSectionHeader={({ section: { title } }) => (
           <DateSection title={title} />

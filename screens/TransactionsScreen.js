@@ -4,6 +4,7 @@ import { Card } from "react-native-elements";
 import { FontAwesome } from "@expo/vector-icons";
 import { Button } from "react-native-elements";
 import { connect } from "react-redux";
+import { removeTransaction } from "../store/actionTypes";
 
 import colors from "../config/colors";
 import PeriodPicker from "../components/PeriodPicker";
@@ -41,7 +42,10 @@ class TransactionsScreen extends React.Component {
             }}
           />
           <Card.Divider />
-          <TransactionsList transactions={this.props.transactions} />
+          <TransactionsList
+            transactions={this.props.transactions}
+            onRemove={this.props.onRemove}
+          />
         </Card>
       </View>
     );
@@ -50,8 +54,13 @@ class TransactionsScreen extends React.Component {
 const mapStateToProps = (state) => ({
   transactions: state.transactionsReducer.transactions,
 });
+const mapDispatchToProps = (dispatch) => ({
+  onRemove: (id) => {
+    dispatch(removeTransaction(id));
+  },
+});
 
-export default connect(mapStateToProps, null)(TransactionsScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionsScreen);
 
 const styles = StyleSheet.create({
   container: {

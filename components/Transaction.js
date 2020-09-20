@@ -27,7 +27,7 @@ const setColorBasedOnCategory = (category) => {
   return color;
 };
 
-const Transaction = ({ transaction }) => {
+const Transaction = ({ transaction, onRemove }) => {
   const navigation = useNavigation();
   const { title, category, amount, type } = transaction;
   return (
@@ -52,9 +52,7 @@ const Transaction = ({ transaction }) => {
           });
         }}
       />
-      <TouchableOpacity
-        onPress={() => alert("remove element: " + transaction.id)}
-      >
+      <TouchableOpacity onPress={() => onRemove(transaction.id)}>
         <MaterialCommunityIcons
           name="delete-forever-outline"
           size={20}
