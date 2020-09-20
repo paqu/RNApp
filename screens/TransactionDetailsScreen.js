@@ -4,11 +4,9 @@ import { Card } from "react-native-elements";
 import ExpenseForm from "../components/ExpenseForm";
 
 const TransactionDetailsScreen = (props) => {
-  console.log(props);
   const { route } = props;
   const title = route.params.title;
   const transaction = route.params.transaction;
-  console.log(transaction);
 
   return (
     <View style={styles.container}>
