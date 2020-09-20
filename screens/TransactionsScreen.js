@@ -3,12 +3,13 @@ import { View, StyleSheet } from "react-native";
 import { Card } from "react-native-elements";
 import { FontAwesome } from "@expo/vector-icons";
 import { Button } from "react-native-elements";
+import { connect } from "react-redux";
 
 import colors from "../config/colors";
 import PeriodPicker from "../components/PeriodPicker";
 import TransactionsList from "../components/TransactionsList";
 
-export default class TransactionsScreen extends React.Component {
+class TransactionsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -40,12 +41,17 @@ export default class TransactionsScreen extends React.Component {
             }}
           />
           <Card.Divider />
-          <TransactionsList />
+          <TransactionsList transactions={this.props.transactions} />
         </Card>
       </View>
     );
   }
 }
+const mapStateToProps = (state) => ({
+  transactions: state.transactionsReducer.transactions,
+});
+
+export default connect(mapStateToProps, null)(TransactionsScreen);
 
 const styles = StyleSheet.create({
   container: {
