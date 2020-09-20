@@ -21,7 +21,7 @@ const DismissKeyboard = ({ children }) => (
 );
 
 const zeroPad = (num) => {
-  let ret = num > 10 ? num : "0" + num;
+  let ret = num > 9 ? num : "0" + num;
   return ret;
 };
 
@@ -36,21 +36,15 @@ const convertDate = (date) => {
 };
 
 const ExpenseForm = (props) => {
-  const { transaction } = props;
+  const { transaction, onSave } = props;
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [category, setCategory] = useState(
-    transaction ? transaction.category : "Choose category"
+  const [selectedIndex, setSelectedIndex] = useState(
+    transaction.type == "expense" ? 0 : 1
   );
-  const [title, setTitle] = useState(transaction ? transaction.title : "");
-  const [amount, setAmount] = useState(
-    transaction ? transaction.amount.toString() : ""
-  );
-  const [date, setDate] = useState(
-    transaction
-      ? convertDate(new Date(transaction.date))
-      : convertDate(new Date(Date.now()))
-  );
+  const [category, setCategory] = useState(transaction.category);
+  const [title, setTitle] = useState(transaction.title);
+  const [amount, setAmount] = useState(transaction.amount.toString());
+  const [date, setDate] = useState(convertDate(new Date(transaction.date)));
 
   const [catPickerVisible, setCatPickerVisible] = useState(false);
   const navigation = useNavigation();
@@ -126,7 +120,16 @@ const ExpenseForm = (props) => {
               marginBottom: 10,
             }}
             title="Save"
-            onPress={() => navigation.navigate("Transactions")}
+            onPress={() => {
+              onSave(transaction.id, {
+                title: title,
+                amount: amount,
+                category: category,
+                date: new Date(date),
+                type: selectedIndex ? "income" : "expense",
+              });
+              navigation.navigate("Transactions");
+            }}
             titleStyle={{
               marginRight: 20,
             }}

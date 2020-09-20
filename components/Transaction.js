@@ -49,6 +49,7 @@ const Transaction = ({ transaction, onRemove }) => {
           navigation.navigate("TransactionDetails", {
             transaction: JSON.parse(JSON.stringify(transaction)),
             title: "Transaction details",
+            type: "update",
           });
         }}
       />

@@ -1,13 +1,5 @@
 const transactions = [
   {
-    id: 1,
-    date: new Date(Date.now()),
-    category: "Fun",
-    title: "Czekolada",
-    amount: 20,
-    type: "expense",
-  },
-  {
     id: 2,
     date: new Date(2020, 8, 13),
     category: "Fun",
@@ -22,7 +14,7 @@ const transactions = [
     title: "Lunch",
     amount: 55,
     type: "income",
-  },
+  } /*
   {
     id: 6,
     date: new Date(2020, 8, 10),
@@ -46,7 +38,7 @@ const transactions = [
     title: "Internet Bills",
     amount: 69,
     type: "expense",
-  },
+  }, */,
 ];
 
 export default transactions;

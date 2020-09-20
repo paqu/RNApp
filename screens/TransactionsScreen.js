@@ -35,6 +35,7 @@ class TransactionsScreen extends React.Component {
             onPress={() =>
               this.props.navigation.navigate("TransactionDetails", {
                 title: "New transaction",
+                type: "add",
               })
             }
             titleStyle={{

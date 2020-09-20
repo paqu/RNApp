@@ -4,43 +4,60 @@ import {
   UPDATE_TRANSACTION,
 } from "./actionTypes";
 
-import { v4 as uuidv4 } from "uuid";
 import transactions from "./transactions";
+
+function id() {
+  var S4 = function () {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  };
+  return (
+    S4() +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    S4() +
+    S4()
+  );
+}
 
 const initialState = {
   transactions: transactions,
 };
 
 const transactionsReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case ADD_TRANSACTION:
-      console.log("ADD TRANSACTION");
       return Object.assign({}, state, {
         transactions: [
-          ...state.transactions,
           {
-            id: v4(),
+            id: id(),
             ...action.transaction,
           },
+          ...state.transactions,
         ],
       });
+
     case REMOVE_TRANSACTION:
-      console.log("REMOVE TRANSACTION");
       return {
         transactions: state.transactions.filter(
           (transaction) => transaction.id !== action.id
         ),
       };
     case UPDATE_TRANSACTION:
-      console.log("UPDATE TRANSACTION");
       return {
         transactions: state.transactions.map((transaction) => {
-          transaction.id === action.id
-            ? { ...action.transaction }
+          return transaction.id === action.id
+            ? { ...transaction, ...action.transaction }
             : transaction;
         }),
       };
+
     default:
       return state;
   }
