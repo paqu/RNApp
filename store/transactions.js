@@ -14,7 +14,7 @@ const transactions = [
     title: "Lunch",
     amount: 55,
     type: "income",
-  } /*
+  },
   {
     id: 6,
     date: new Date(2020, 8, 10),
@@ -31,14 +31,6 @@ const transactions = [
     amount: 23,
     type: "expense",
   },
-  {
-    id: 8,
-    date: new Date(2020, 8, 9),
-    category: "Bills",
-    title: "Internet Bills",
-    amount: 69,
-    type: "expense",
-  }, */,
 ];
 
 export default transactions;

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, SectionList } from "react-native";
 import DateSection from "./DateSection";
 
 import Transaction from "./Transaction";
+import { groupByCreator } from "../utils";
 
 const splitDate = (date) => {
   return {
@@ -19,15 +20,6 @@ const dateMapper = (entry) => {
     dayDateMonthYear: new Date(year, month, date).toDateString(),
   };
 };
-
-const groupByCreator = (key) => (array) =>
-  array.reduce(
-    (objectsByKeyValue, obj) => ({
-      ...objectsByKeyValue,
-      [obj[key]]: (objectsByKeyValue[obj[key]] || []).concat(obj),
-    }),
-    {}
-  );
 
 const groupByDate = groupByCreator("dayDateMonthYear");
 
