@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from "react-native";
 import colors from "../config/colors";
 
 const BudgetSummary = (props) => {
-  const income = 1000;
-  const expense = 800;
+  const income = 0;
+  const expense = 0;
   const balance = income - expense;
 
   return (
